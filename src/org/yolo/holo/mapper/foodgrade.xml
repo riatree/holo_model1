@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="foodgrade">
+	
+	<select id="selectFoodHice" resultType="double" parameterType="int">
+		SELECT AVG(noSpotHice)
+		FROM(SELECT f.no, f.hice noSpotHice, s.no spotNo, s.name spotName
+			FROM foodgrade f, spot s
+			WHERE f.no_spot = s.no
+			AND s.no = #{no})
+	</select>
+	
+	<select id="selectFoodReview" resultType="FoodGrade" parameterType="int">
+		SELECT count(no_dounor) noDounorCount, AVG(hice) hiceCount, 
+		count(flavor) flavorCount,count(service) serviceCount,
+		count(feeling) feelingCount,count(together_good) togetherGoodCount,
+		count(clean) cleanCount, count(cheap) cheapCount
+		FROM FOODGRADE
+		WHERE no_spot=#{no}
+		GROUP BY no_spot
+	</select>
+	
+	<insert id="insert" parameterType="FoodGrade">
+		INSERT INTO foodgrade(no, no_dounor, no_spot, hice, flavor, service, clean, feeling, cheap, together_good, no_together, no_review, regdate)
+		VALUES(foodgrade_seq.nextval, #{noDounor}, #{noSpot}, #{hice}, #{flavor}, #{service}, #{clean}, #{feeling}, #{cheap}, '', '', 0, systimestamp)
+	</insert>
+	
+</mapper>

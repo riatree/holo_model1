@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 패키지명이 길어졌을 경우 편리하게 사용하는 별칭 -->
+	<typeAliases>
+		<typeAlias alias="CheckList" type="org.yolo.holo.vo.CheckList"/>
+		<typeAlias alias="ContentsTag" type="org.yolo.holo.vo.ContentsTag"/>
+		<typeAlias alias="Donut" type="org.yolo.holo.vo.Donut"/>
+		<typeAlias alias="Dounor" type="org.yolo.holo.vo.Dounor"/>
+		<typeAlias alias="DounorSave" type="org.yolo.holo.vo.DounorSave"/>
+		<typeAlias alias="Follow" type="org.yolo.holo.vo.Follow"/>
+		<typeAlias alias="FoodGrade" type="org.yolo.holo.vo.FoodGrade"/>
+		<typeAlias alias="GetDonut" type="org.yolo.holo.vo.GetDonut"/>
+		<typeAlias alias="HLog" type="org.yolo.holo.vo.HLog"/>
+		<typeAlias alias="HLogComment" type="org.yolo.holo.vo.HLogComment"/>
+		<typeAlias alias="HLogSpot" type="org.yolo.holo.vo.HLogSpot"/>
+		<typeAlias alias="Location" type="org.yolo.holo.vo.Location"/>
+		<typeAlias alias="LocationCheck" type="org.yolo.holo.vo.LocationCheck"/>
+		<typeAlias alias="Menu" type="org.yolo.holo.vo.Menu"/>
+		<typeAlias alias="Personnel" type="org.yolo.holo.vo.Personnel"/>
+		<typeAlias alias="Review" type="org.yolo.holo.vo.Review"/>
+		<typeAlias alias="Service" type="org.yolo.holo.vo.Service"/>
+		<typeAlias alias="Siren" type="org.yolo.holo.vo.Siren"/>
+		<typeAlias alias="Spot" type="org.yolo.holo.vo.Spot"/>
+		<typeAlias alias="SpotPic" type="org.yolo.holo.vo.SpotPic"/>
+		<typeAlias alias="Tag" type="org.yolo.holo.vo.Tag"/>
+		<typeAlias alias="Theme" type="org.yolo.holo.vo.Theme"/>
+		<typeAlias alias="Together" type="org.yolo.holo.vo.Together"/>
+		<typeAlias alias="TourGrade" type="org.yolo.holo.vo.TourGrade"/>
+		<typeAlias alias="PageVO" type="org.yolo.holo.vo.PageVO"/>
+	</typeAliases>
+
+<!-- DBMS와 연결하는 환경설정 -->
+
+<environments default="development">
+	<environment id="development">
+		<transactionManager type="JDBC"/>
+		<dataSource type="JNDI">
+			<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+		</dataSource>
+	</environment>
+</environments>
+
+<!-- 매퍼 경로 설정 (sql구문들이 들어가는 곳)-->
+	<mappers>
+		<mapper resource="org/yolo/holo/mapper/checklist.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/contentstag.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/donut.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/dounor.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/dounorsave.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/follow.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/foodgrade.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/getdonut.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/hlog.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/hlogcomment.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/hlogspot.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/location.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/locationcheck.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/menu.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/personnel.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/review.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/service.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/siren.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/spot.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/spotpic.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/tag.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/theme.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/together.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/tourgrade.xml"></mapper>
+	</mappers>
+
+</configuration>
